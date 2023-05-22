@@ -17,16 +17,17 @@ public class Webdriverclass {
     public WebDriver driver;
 
     @BeforeMethod
-    public void setup(){
+    public void setup() {
 //        System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Downloads\\chromedriver_win32\\chromedriver.exe");
 //        driver=new ChromeDriver();
-        ChromeOptions options=new ChromeOptions();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         WebDriverManager.chromedriver().setup();
-        driver=new ChromeDriver(options);
+        driver = new ChromeDriver(options);
     }
+
     @Test
-    public void FB() throws InterruptedException, IOException {
+    public void FB() throws InterruptedException, IOException{
     driver.get("https://www.facebook.com/");
     driver.manage().window().maximize();
     String url= driver.getCurrentUrl();
@@ -41,10 +42,7 @@ public class Webdriverclass {
    Thread.sleep(3000);
    driver.navigate().refresh();
    driver.navigate().forward();
-   TakesScreenshot ts=(TakesScreenshot)driver;
-   File sFile=ts.getScreenshotAs(OutputType.FILE);
-   File dFile=new File("E:\\QA\\Selenium\\src\\Facebook_Screenshot\\"+"Fb.png");
-   FileHandler.copy(sFile,dFile);
+   Thread.sleep(3000);
    driver.close();
 //    driver.quit();
     }

@@ -55,11 +55,11 @@ public void signup() throws InterruptedException {
         day.sendKeys("16");
         Thread.sleep(3000);
         WebElement month=driver.findElement(By.id("month"));
-        month.sendKeys("May");
+        month.sendKeys("June");
         Thread.sleep(2000);
         WebElement year=driver.findElement(By.id("year"));
         year.sendKeys("1995");
         Thread.sleep(3000);
-        driver.findElement(By.xpath("(//label[@class='_58mt'])[2]")).click();
+        driver.findElement(By.xpath("(//label[@class='_58mt'])[1s]")).click();
     }
 }

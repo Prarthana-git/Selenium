@@ -35,7 +35,7 @@ public class Locators_class {
         driver.findElement(By.xpath("//button[contains(text(),'Log')]")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("//input[starts-with(@placeholder,'Email address')]")).sendKeys("65845575665");
-//        driver.findElement(By.xpath("//input[ends-with(@placeholder,'Email address')]")).sendKeys("65845575665");
+//      driver.findElement(By.xpath("//input[ends-with(@placeholder,'Email address')]")).sendKeys("65845575665");
 
     }
 }
