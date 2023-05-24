@@ -12,28 +12,25 @@ public class FB_login {
     public WebDriver driver;
 
     @BeforeMethod
-    public void setup(){
+    public void setup() throws InterruptedException {
 //        System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Downloads\\chromedriver_win32\\chromedriver.exe");
 //        driver=new ChromeDriver();
         ChromeOptions options=new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver(options);
-    }
-    @Test
-    public void login() throws InterruptedException {
         driver.get("https://www.facebook.com/");
         driver.manage().window().maximize();
         Thread.sleep(5000);
+    }
+    @Test
+    public void login()  {
         driver.findElement(By.id("email")).sendKeys("prarthanachaudhari@gmail.com");
         driver.findElement(By.name("pass")).sendKeys("prarthana");
         driver.findElement(By.name("login")).click();
     }
     @Test
 public void signup() throws InterruptedException {
-        driver.get("https://www.facebook.com/");
-        driver.manage().window().maximize();
-        Thread.sleep(5000);
         driver.findElement(By.partialLinkText("Create new ")).click();
         Thread.sleep(3000);
         WebElement firstname = driver.findElement(By.name("firstname"));
@@ -60,6 +57,6 @@ public void signup() throws InterruptedException {
         WebElement year=driver.findElement(By.id("year"));
         year.sendKeys("1995");
         Thread.sleep(3000);
-        driver.findElement(By.xpath("(//label[@class='_58mt'])[1s]")).click();
+        driver.findElement(By.xpath("(//label[@class='_58mt'])[1]")).click();
     }
 }

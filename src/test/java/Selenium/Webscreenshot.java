@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 
-public class Webscreenshotclass {
+public class Webscreenshot {
     public WebDriver driver;
     @BeforeMethod
     public void setup(){

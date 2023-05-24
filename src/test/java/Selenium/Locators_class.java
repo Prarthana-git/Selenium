@@ -3,6 +3,7 @@ package Selenium;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeMethod;
@@ -11,7 +12,7 @@ import org.testng.annotations.Test;
 public class Locators_class {
     public WebDriver driver;
     @BeforeMethod
-    public void setup(){
+    public void setup() {
 //        System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Downloads\\chromedriver_win32\\chromedriver.exe");
 //        driver=new ChromeDriver();
         ChromeOptions options=new ChromeOptions();
@@ -20,10 +21,14 @@ public class Locators_class {
         driver=new ChromeDriver(options);
     }
     @Test
-    public void locator_method() throws InterruptedException {
+    public void open() throws InterruptedException {
         driver.get("https://www.facebook.com/");
         driver.manage().window().maximize();
         Thread.sleep(5000);
+    }
+    @Test
+    public void locator_method() throws InterruptedException {
+   open();
 //        driver.findElement(By.cssSelector("input[id='email']")).sendKeys("985644567");
         //OR
         driver.findElement(By.cssSelector("input#email")).sendKeys("65456887555");
@@ -36,6 +41,16 @@ public class Locators_class {
         Thread.sleep(3000);
         driver.findElement(By.xpath("//input[starts-with(@placeholder,'Email address')]")).sendKeys("65845575665");
 //      driver.findElement(By.xpath("//input[ends-with(@placeholder,'Email address')]")).sendKeys("65845575665");
+        Thread.sleep(3000);
+        open();
+        WebElement Text = driver.findElement(By.linkText("Create new account"));
+        String text = Text.getText();
+        System.out.println(text);
+        WebElement dis = driver.findElement(By.linkText("Create new account"));
+        boolean display = dis.isDisplayed();
+        System.out.println(display);
+        driver.findElement(By.partialLinkText("Create new ")).click();
+        driver.quit();
 
     }
 }

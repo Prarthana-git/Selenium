@@ -1,19 +1,15 @@
 package Selenium;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
 
-public class Webdriverclass {
+public class Webdriver {
     public WebDriver driver;
 
     @BeforeMethod
@@ -27,7 +23,7 @@ public class Webdriverclass {
     }
 
     @Test
-    public void FB() throws InterruptedException, IOException{
+    public void FB() throws InterruptedException{
     driver.get("https://www.facebook.com/");
     driver.manage().window().maximize();
     String url= driver.getCurrentUrl();

@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class Webelementclass {
+public class Webelement {
     public WebDriver driver;
 
     @BeforeMethod
@@ -25,7 +25,7 @@ public class Webelementclass {
     }
 
     @Test
-    public void login() throws InterruptedException, IOException {
+    public void login() throws InterruptedException {
         driver.get("https://www.facebook.com/");
         driver.manage().window().maximize();
         Thread.sleep(5000);
@@ -37,7 +37,6 @@ public class Webelementclass {
         boolean display = dis.isDisplayed();
         System.out.println(display);
         driver.findElement(By.partialLinkText("Create new ")).click();
-
         driver.get("https://www.facebook.com/");
         driver.manage().window().maximize();
         Thread.sleep(5000);
