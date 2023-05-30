@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.testng.Reporter.clear;
+
 public class Locators_class {
     public WebDriver driver;
     @BeforeMethod
@@ -31,8 +33,10 @@ public class Locators_class {
    open();
 //        driver.findElement(By.cssSelector("input[id='email']")).sendKeys("985644567");
         //OR
-        driver.findElement(By.cssSelector("input#email")).sendKeys("65456887555");
-
+        WebElement ele =driver.findElement(By.cssSelector("input#email"));
+        ele.sendKeys("65456887555");
+        ele.clear();
+        Thread.sleep(3000);
         driver.findElement(By.xpath("//input[@placeholder='Email address or phone number']")).sendKeys("65845575665");
         driver.findElement(By.xpath("//button[text()='Log in']")).click();
         Thread.sleep(3000);
