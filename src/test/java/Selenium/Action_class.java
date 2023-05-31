@@ -2,6 +2,7 @@ package Selenium;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -47,19 +48,41 @@ public class Action_class {
 //        actions.release(des).perform();
         driver.close();
     }
-
    @Test
    public void Using_DoubleClick() throws InterruptedException {
-      driver.get("https://www.facebook.com/");
-      driver.manage().window().maximize();
-      Thread.sleep(2000);
-      Actions actions=new Actions(driver);
-      WebElement MobNum=driver.findElement(By.id("email"));
-      WebElement pass=driver.findElement(By.id("pass"));
-      actions.doubleClick(pass).perform();
-      Thread.sleep(2000);
-      actions.doubleClick(MobNum).perform();
-      Thread.sleep(2000);
-      driver.close();
+       driver.get("https://www.facebook.com/");
+       driver.manage().window().maximize();
+       Thread.sleep(2000);
+       Actions actions = new Actions(driver);
+       WebElement MobNum = driver.findElement(By.id("email"));
+       WebElement pass = driver.findElement(By.id("pass"));
+       actions.doubleClick(pass).perform();
+       Thread.sleep(2000);
+       actions.doubleClick(MobNum).perform();
+       Thread.sleep(2000);
+       driver.close();
    }
+   @Test
+   public void Using_Keyboard() throws InterruptedException {
+        driver.get("https://www.facebook.com/");
+        driver.manage().window().maximize();
+        Thread.sleep(2000);
+        WebElement element=driver.findElement(By.partialLinkText("Forgotten password"));
+        Actions actions=new Actions(driver);
+        actions.contextClick(element).perform();
+        actions.sendKeys(Keys.DOWN).perform();
+        actions.sendKeys(Keys.ENTER).perform();
+        Thread.sleep(2000);
+        driver.close();
+    }
+    @Test
+    public void Using_MoveTo() throws InterruptedException {
+        driver.get("https://www.facebook.com");
+        driver.manage().window().maximize();
+        Thread.sleep(2000);
+        WebElement login=driver.findElement(By.name("login"));
+        Actions actions=new Actions(driver);
+        actions.moveToElement(login).perform();
+        Thread.sleep(2000);
+    }
 }
